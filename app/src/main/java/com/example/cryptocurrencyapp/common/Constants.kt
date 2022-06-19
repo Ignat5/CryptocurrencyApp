@@ -9,4 +9,5 @@ object Constants {
     const val IS_NEW_FIELD = "is_new"
 
     const val CRYPTO_ID = "id"
+    const val CRYPTO_SAVED_STATE_ID = "cryptoId"
 }
