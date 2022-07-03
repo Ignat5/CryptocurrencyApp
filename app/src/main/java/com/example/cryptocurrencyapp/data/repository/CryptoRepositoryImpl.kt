@@ -5,8 +5,8 @@ import com.example.cryptocurrencyapp.data.dto.CryptoDto
 import com.example.cryptocurrencyapp.data.remote.CoinPaprikaApi
 import javax.inject.Inject
 
-class CryptoRepositoryImpl constructor(
-    @Inject private val api: CoinPaprikaApi): CryptoRepository {
+class CryptoRepositoryImpl @Inject constructor(
+    private val api: CoinPaprikaApi): CryptoRepository {
 
     override suspend fun getAllCrypto(): List<CryptoDto> =
         api.getAllCrypto()

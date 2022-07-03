@@ -1,5 +1,6 @@
 package com.example.cryptocurrencyapp.presentation.crypto_list_screen
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -24,7 +25,7 @@ fun CryptoListScreen(
     viewModel: CryptoListViewModel = hiltViewModel(),
     onCryptoItemClick: (String) -> Unit
 ) {
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(modifier = Modifier.fillMaxSize().background(color = Color.Black)) {
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()

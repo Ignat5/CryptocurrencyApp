@@ -13,19 +13,19 @@ import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
 
-class GetCryptoDetailByIdUseCase constructor(
-    @Inject private val repository: CryptoRepository
+class GetCryptoDetailByIdUseCase @Inject constructor(
+    private val repository: CryptoRepository
 ) {
     operator fun invoke(cryptoId: String): Flow<Resource<CryptoDetail>> = flow {
         try {
-            emit(Resource.Loading())
+            emit(Resource.Loading<CryptoDetail>())
             val cryptoDetail = repository.getCryptoById(cryptoId).toCryptoDetail()
             emit(Resource.Success(cryptoDetail))
         } catch (e: HttpException) {
-            emit(Resource.Error(message = e.localizedMessage))
+            emit(Resource.Error<CryptoDetail>(message = e.localizedMessage))
         }
         catch (e: IOException) {
-            emit(Resource.Error(message = "No internet error"))
+            emit(Resource.Error<CryptoDetail>(message = "No internet error"))
         }
     }
 }
